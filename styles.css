@@ -19,13 +19,16 @@ body {
     min-height: 100vh;
     flex-direction: column;
     text-align: center;
+    justify-content: space-between;
 }
 
-section {
+article {
     display: flex;
     background-color: lightgray;
-    flex: 1;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    flex: 1;
 }
 
 footer {
@@ -64,18 +67,15 @@ li:first-child {
     margin-right: auto
 }
 
-h2 {
-    margin-top: 2rem;
-}
 
 form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     border-radius: 0.5rem;
     border-top: 0.5rem solid lightblue;
     background-color: whitesmoke;
-    max-height: 50%;
+    width: 25%;
+    padding: 0.5rem 1rem;
 }
 
 label {
@@ -87,11 +87,8 @@ label {
 input {
     display: block;
     margin: 0.5rem;
-    margin-right: 0;
     padding: 0;
-    max-width: 80%;
-    overflow: hidden;
-    
+    max-width: 90%;
 }
 
 form div {
