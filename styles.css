@@ -1,0 +1,108 @@
+html {
+    box-sizing: border-box
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-between;
+}
+
+article {
+    display: flex;
+    background-color: lightgray;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+footer {
+    background-color: lightblue;
+    bottom: 0;
+    left: 0;
+}
+
+a {
+    text-decoration: none;
+    color: blue;
+}
+
+nav {
+    background-color: lightblue;
+}
+
+nav ul {
+    display: flex;
+    margin: 0;
+}
+
+nav ul li {
+    list-style: none;
+    padding: 1rem;
+    margin: 0;
+}
+
+nav ul li a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: green;
+}
+
+li:first-child {
+    margin-right: auto
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.5rem;
+    border-top: 0.5rem solid lightblue;
+    background-color: whitesmoke;
+    width: 25%;
+    padding: 0.5rem 1rem;
+}
+
+label {
+    align-self: flex-start;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+input {
+    display: block;
+    margin: 0.5rem;
+    padding: 0;
+    max-width: 90%;
+}
+
+form div {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+
+div input {
+    justify-self: flex-start;
+    flex: 1;
+}
+
+form a {
+    justify-self: flex-end;
+    flex: 2;
+}
