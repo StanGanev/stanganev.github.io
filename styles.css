@@ -274,7 +274,7 @@ hr {
   color: whitesmoke;
   transition: 0.2s ease-in-out;
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
   .grid-wrapper .main-banner .container {
     padding: 2rem;
   }
@@ -318,7 +318,7 @@ hr {
   max-width: 100%;
   height: auto;
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
   .grid-wrapper .coaches .container {
     flex-direction: column;
     padding: 2rem;
@@ -416,7 +416,7 @@ hr {
   position: relative;
   z-index: 1;
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
   .grid-wrapper .service .container {
     padding: 2rem 0.5rem;
   }
