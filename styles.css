@@ -95,7 +95,7 @@ hr {
 }
 .grid-wrapper header {
   display: flex;
-  width: 98.7vw;
+  width: 100vw;
   height: auto;
   background-color: #212529;
   z-index: 2;
@@ -239,7 +239,7 @@ hr {
 }
 .grid-wrapper .main-banner .container {
   position: relative;
-  width: 98.7vw;
+  width: 100vw;
   padding: 0 8rem;
   display: flex;
   flex-direction: column;
@@ -274,15 +274,19 @@ hr {
   color: whitesmoke;
   transition: 0.2s ease-in-out;
 }
+@media screen and (max-width: 400px) {
+  .grid-wrapper .main-banner .container {
+    padding: 2rem;
+  }
+}
 .grid-wrapper .coaches {
   background-color: #1a1c27;
-  width: 98.7vw;
+  width: 100vw;
 }
 .grid-wrapper .coaches .container {
   position: relative;
   padding: 5rem 8rem;
   display: flex;
-  flex-wrap: wrap;
   width: 100%;
   height: auto;
 }
@@ -315,8 +319,9 @@ hr {
   height: auto;
 }
 @media screen and (max-width: 400px) {
-  .grid-wrapper .coaches .container figure {
-    margin-top: 2rem;
+  .grid-wrapper .coaches .container {
+    flex-direction: column;
+    padding: 2rem;
   }
 }
 .grid-wrapper .service {
@@ -347,6 +352,8 @@ hr {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  height: auto;
 }
 .grid-wrapper .service .container article hr {
   border-color: white;
@@ -385,11 +392,6 @@ hr {
   background-color: #eb315a;
   opacity: 0.9;
 }
-@media screen and (max-width: 400px) {
-  .grid-wrapper .service .container article {
-    flex-direction: column;
-  }
-}
 .grid-wrapper .service .container .bodyshape {
   background-image: url("bodyshapeing.9e3ddd0e.jpg");
   background-repeat: no-repeat;
@@ -413,6 +415,16 @@ hr {
   background-size: cover;
   position: relative;
   z-index: 1;
+}
+@media screen and (max-width: 400px) {
+  .grid-wrapper .service .container {
+    padding: 2rem 0.5rem;
+  }
+  .grid-wrapper .service .container article {
+    margin: 0 2rem;
+    flex: 1;
+    padding: 3rem;
+  }
 }
 .grid-wrapper .prices {
   background-color: #1a1c27;
