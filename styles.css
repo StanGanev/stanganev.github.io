@@ -14,8 +14,8 @@ html {
 }
 
 main {
-  display: grid;
-  grid-template-rows: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 body {
@@ -24,6 +24,7 @@ body {
   font-weight: 400;
   line-height: 1.5;
   text-align: left;
+  font-size: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -89,36 +90,40 @@ hr {
 
 .grid-wrapper {
   display: grid;
+  width: 100%;
   grid-template-rows: 80px 2fr auto;
 }
 .grid-wrapper header {
-  display: grid;
-  grid-template-columns: 20% auto;
+  display: flex;
+  width: 98.7vw;
+  height: auto;
   background-color: #212529;
   z-index: 2;
   opacity: 0.8;
-  align-items: center;
   position: sticky;
   right: 0;
   left: 0;
   top: 0;
 }
-.grid-wrapper header .logo {
-  grid-column: 1 2;
-  margin-left: 1rem;
+.grid-wrapper header nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
-.grid-wrapper header .logo img {
+.grid-wrapper header nav .logo {
+  margin-left: 1rem;
+  margin-right: auto;
+}
+.grid-wrapper header nav .logo img {
   max-height: 60px;
   max-width: auto;
 }
-.grid-wrapper header nav {
-  grid-column: 2 3;
-  justify-self: end;
-  align-self: center;
+.grid-wrapper header nav ul {
+  margin-right: 2rem;
 }
 .grid-wrapper header nav ul li {
   display: inline-block;
-  margin-right: 1.5rem;
+  margin-right: 1rem;
   padding: 0.5rem;
 }
 .grid-wrapper header nav ul a {
@@ -126,6 +131,92 @@ hr {
 }
 .grid-wrapper header nav ul a:hover {
   color: red;
+}
+.grid-wrapper header .hamburgerContainer {
+  width: 100%;
+  z-index: 3;
+  box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
+  display: block;
+}
+.grid-wrapper header .hamburgerContainer .logo {
+  margin-left: 1rem;
+}
+.grid-wrapper header .hamburgerContainer .logo img {
+  margin-top: 0.8rem;
+  max-height: 60px;
+  max-width: auto;
+}
+.grid-wrapper header .hamburgerContainer .menu-btn {
+  display: none;
+}
+.grid-wrapper header .hamburgerContainer .menu-icon {
+  cursor: pointer;
+  float: right;
+  position: relative;
+  user-select: none;
+  padding: 15px 10px;
+  margin-top: 1.5rem;
+  margin-right: 3rem;
+  width: 50px;
+  border: 2px solid #495057;
+  border-radius: 5px;
+  z-index: 3;
+}
+.grid-wrapper header .hamburgerContainer .menu-icon .navicon {
+  background: #495057;
+  display: block;
+  height: 3px;
+  transition: background 0.2s ease-out;
+}
+.grid-wrapper header .hamburgerContainer .menu-icon .navicon::before {
+  top: 7.5px;
+}
+.grid-wrapper header .hamburgerContainer .menu-icon .navicon::after {
+  top: -10px;
+}
+.grid-wrapper header .hamburgerContainer .menu-icon .navicon::before,
+.grid-wrapper header .hamburgerContainer .menu-icon .navicon::after {
+  background: #495057;
+  content: "";
+  display: block;
+  height: 100%;
+  position: relative;
+  transition: all 0.2s ease-out;
+}
+.grid-wrapper header .hamburgerContainer .menu {
+  clear: both;
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
+  background-color: #212529;
+  opacity: 1;
+  overflow: hidden;
+  margin-top: 0.2rem;
+}
+.grid-wrapper header .hamburgerContainer .menu li {
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+  text-transform: uppercase;
+}
+.grid-wrapper header .hamburgerContainer .menu-btn:checked ~ .menu {
+  position: relative;
+  width: 100%;
+  max-height: 250px;
+}
+.grid-wrapper header .hamburgerContainer .menu-btn:checked ~ .menu-icon {
+  background: #eb315a;
+}
+@media screen and (min-width: 992px) {
+  .grid-wrapper header .hamburgerContainer {
+    display: none;
+  }
+}
+@media screen and (max-width: 992px) {
+  .grid-wrapper header nav {
+    display: none;
+  }
+  .grid-wrapper header .hamburgerContainer {
+    flex: 1;
+  }
 }
 .grid-wrapper .main-banner {
   background-image: url("fitness.396fd203.jpg");
@@ -135,6 +226,8 @@ hr {
   background-attachment: fixed;
   background-position: top center;
   padding: 10% 0;
+  width: 100%;
+  height: auto;
 }
 .grid-wrapper .main-banner .overlay {
   position: absolute;
@@ -146,22 +239,26 @@ hr {
 }
 .grid-wrapper .main-banner .container {
   position: relative;
-  width: 100%;
+  width: 98.7vw;
   padding: 0 8rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 .grid-wrapper .main-banner .container h2 {
   font-size: 32px;
+  flex: 1;
 }
 .grid-wrapper .main-banner .container h2:first-of-type {
   margin-top: 5rem;
 }
 .grid-wrapper .main-banner .container p {
+  display: flex;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  width: 25rem;
+  width: 50%;
   font-weight: bold;
-  word-break: break-word;
-  flex-basis: 10%;
+  word-wrap: wrap;
 }
 .grid-wrapper .main-banner .container .btn {
   font-size: 12px;
@@ -179,32 +276,52 @@ hr {
 }
 .grid-wrapper .coaches {
   background-color: #1a1c27;
+  width: 98.7vw;
 }
 .grid-wrapper .coaches .container {
-  width: 100%;
+  position: relative;
   padding: 5rem 8rem;
   display: flex;
-  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 100%;
+  height: auto;
 }
-.grid-wrapper .coaches .container h2, .grid-wrapper .coaches .container h3, .grid-wrapper .coaches .container h4 {
+.grid-wrapper .coaches .container article {
+  flex: 1 0 30%;
+  margin-bottom: 2rem;
+}
+.grid-wrapper .coaches .container article h2, .grid-wrapper .coaches .container article h3, .grid-wrapper .coaches .container article h4 {
   margin: 1rem 0;
+  width: 100%;
 }
-.grid-wrapper .coaches .container h3 {
+.grid-wrapper .coaches .container article h3 {
   border-left: 3px solid red;
   padding-left: 1rem;
   margin-bottom: 2rem;
 }
-.grid-wrapper .coaches .container h4 {
-  width: 25rem;
+.grid-wrapper .coaches .container article h4 {
+  width: 80%;
 }
-.grid-wrapper .coaches .container p {
-  width: 20rem;
+.grid-wrapper .coaches .container article p {
+  width: 80%;
 }
 .grid-wrapper .coaches .container figure {
-  max-width: 50%;
+  max-width: 80%;
+  height: auto;
+  flex: 1 1 auto;
+}
+.grid-wrapper .coaches .container figure img {
+  max-width: 100%;
+  height: auto;
+}
+@media screen and (max-width: 400px) {
+  .grid-wrapper .coaches .container figure {
+    margin-top: 2rem;
+  }
 }
 .grid-wrapper .service {
   background-color: black;
+  width: 100vw;
 }
 .grid-wrapper .service h2 {
   text-align: center;
@@ -216,9 +333,11 @@ hr {
 .grid-wrapper .service .container {
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   justify-items: center;
   width: 100%;
+  height: auto;
   padding: 2rem 8rem;
 }
 .grid-wrapper .service .container article {
@@ -266,6 +385,11 @@ hr {
   background-color: #eb315a;
   opacity: 0.9;
 }
+@media screen and (max-width: 400px) {
+  .grid-wrapper .service .container article {
+    flex-direction: column;
+  }
+}
 .grid-wrapper .service .container .bodyshape {
   background-image: url("bodyshapeing.9e3ddd0e.jpg");
   background-repeat: no-repeat;
@@ -292,6 +416,7 @@ hr {
 }
 .grid-wrapper .prices {
   background-color: #1a1c27;
+  width: 100vw;
 }
 .grid-wrapper .prices h2 {
   text-align: center;
@@ -305,6 +430,7 @@ hr {
   display: flex;
   justify-content: space-evenly;
   justify-items: center;
+  flex-wrap: wrap;
   max-width: 100%;
   padding: 2rem 8rem;
 }
@@ -344,6 +470,7 @@ hr {
 .grid-wrapper .login {
   background-color: #171923;
   text-align: center;
+  width: 100vw;
 }
 .grid-wrapper .login .container {
   position: relative;
@@ -397,6 +524,7 @@ hr {
 .grid-wrapper .faq {
   background-color: #1a1c27;
   text-align: center;
+  width: 100vw;
 }
 .grid-wrapper .faq h2 {
   margin-top: 5rem;
@@ -423,15 +551,23 @@ hr {
   color: gray;
   max-width: 100%;
 }
+@media screen and (max-width: 770px) {
+  .grid-wrapper .faq .container {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+}
 .grid-wrapper footer {
   background: #13191d url("footer.6d410079.jpg") center center no-repeat;
   background-size: cover;
   background-attachment: fixed;
   position: relative;
+  width: 100vw;
 }
 .grid-wrapper footer .container {
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   align-content: space-around;
 }
 .grid-wrapper footer .container article, .grid-wrapper footer .container address {
@@ -581,6 +717,15 @@ hr {
   background-color: #eb315a;
   border-color: #eb315a;
   color: #fff;
+}
+@media screen and (max-width: 800px) {
+  .grid-wrapper footer .container {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  .grid-wrapper footer .container article, .grid-wrapper footer .container address {
+    flex: 0 2 50%;
+  }
 }
 .grid-wrapper footer .last-line {
   position: relative;
