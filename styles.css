@@ -11,11 +11,8 @@
 
 html {
   scroll-behavior: smooth;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 body {
@@ -25,6 +22,17 @@ body {
   line-height: 1.5;
   text-align: left;
   font-size: 100%;
+}
+
+.grid-wrapper {
+  display: grid;
+  width: 100%;
+  grid-template-rows: 80px 2fr auto;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -88,68 +96,63 @@ hr {
   padding: 1rem 0 1rem 0;
 }
 
-.grid-wrapper {
-  display: grid;
-  width: 100%;
-  grid-template-rows: 80px 2fr auto;
-}
-.grid-wrapper header {
+header {
   display: flex;
   width: 100vw;
   height: auto;
   background-color: #212529;
-  z-index: 2;
+  z-index: 3;
   opacity: 0.8;
   position: sticky;
   right: 0;
   left: 0;
   top: 0;
 }
-.grid-wrapper header nav {
+header nav {
   display: flex;
   align-items: center;
   width: 100%;
 }
-.grid-wrapper header nav .logo {
+header nav .logo {
   margin-left: 1rem;
   margin-right: auto;
 }
-.grid-wrapper header nav .logo img {
+header nav .logo img {
   max-height: 60px;
   max-width: auto;
 }
-.grid-wrapper header nav ul {
+header nav ul {
   margin-right: 2rem;
 }
-.grid-wrapper header nav ul li {
+header nav ul li {
   display: inline-block;
   margin-right: 1rem;
   padding: 0.5rem;
 }
-.grid-wrapper header nav ul a {
+header nav ul a {
   text-transform: uppercase;
 }
-.grid-wrapper header nav ul a:hover {
+header nav ul a:hover {
   color: red;
 }
-.grid-wrapper header .hamburgerContainer {
+header .hamburgerContainer {
   width: 100%;
   z-index: 3;
   box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
   display: block;
 }
-.grid-wrapper header .hamburgerContainer .logo {
+header .hamburgerContainer .logo {
   margin-left: 1rem;
 }
-.grid-wrapper header .hamburgerContainer .logo img {
+header .hamburgerContainer .logo img {
   margin-top: 0.8rem;
   max-height: 60px;
   max-width: auto;
 }
-.grid-wrapper header .hamburgerContainer .menu-btn {
+header .hamburgerContainer .menu-btn {
   display: none;
 }
-.grid-wrapper header .hamburgerContainer .menu-icon {
+header .hamburgerContainer .menu-icon {
   cursor: pointer;
   float: right;
   position: relative;
@@ -162,20 +165,20 @@ hr {
   border-radius: 5px;
   z-index: 3;
 }
-.grid-wrapper header .hamburgerContainer .menu-icon .navicon {
+header .hamburgerContainer .menu-icon .navicon {
   background: #495057;
   display: block;
   height: 3px;
   transition: background 0.2s ease-out;
 }
-.grid-wrapper header .hamburgerContainer .menu-icon .navicon::before {
+header .hamburgerContainer .menu-icon .navicon::before {
   top: 7.5px;
 }
-.grid-wrapper header .hamburgerContainer .menu-icon .navicon::after {
+header .hamburgerContainer .menu-icon .navicon::after {
   top: -10px;
 }
-.grid-wrapper header .hamburgerContainer .menu-icon .navicon::before,
-.grid-wrapper header .hamburgerContainer .menu-icon .navicon::after {
+header .hamburgerContainer .menu-icon .navicon::before,
+header .hamburgerContainer .menu-icon .navicon::after {
   background: #495057;
   content: "";
   display: block;
@@ -183,7 +186,7 @@ hr {
   position: relative;
   transition: all 0.2s ease-out;
 }
-.grid-wrapper header .hamburgerContainer .menu {
+header .hamburgerContainer .menu {
   clear: both;
   max-height: 0;
   transition: max-height 0.2s ease-out;
@@ -192,33 +195,34 @@ hr {
   overflow: hidden;
   margin-top: 0.2rem;
 }
-.grid-wrapper header .hamburgerContainer .menu li {
+header .hamburgerContainer .menu li {
   margin-top: 0.5rem;
   margin-left: 1rem;
   text-transform: uppercase;
 }
-.grid-wrapper header .hamburgerContainer .menu-btn:checked ~ .menu {
+header .hamburgerContainer .menu-btn:checked ~ .menu {
   position: relative;
   width: 100%;
   max-height: 250px;
 }
-.grid-wrapper header .hamburgerContainer .menu-btn:checked ~ .menu-icon {
+header .hamburgerContainer .menu-btn:checked ~ .menu-icon {
   background: #eb315a;
 }
-@media screen and (min-width: 992px) {
-  .grid-wrapper header .hamburgerContainer {
+@media screen and (min-width: 900px) {
+  header .hamburgerContainer {
     display: none;
   }
 }
-@media screen and (max-width: 992px) {
-  .grid-wrapper header nav {
+@media screen and (max-width: 900px) {
+  header nav {
     display: none;
   }
-  .grid-wrapper header .hamburgerContainer {
+  header .hamburgerContainer {
     flex: 1;
   }
 }
-.grid-wrapper .main-banner {
+
+.main-banner {
   background-image: url("fitness.396fd203.jpg");
   position: relative;
   z-index: 1;
@@ -226,10 +230,10 @@ hr {
   background-attachment: fixed;
   background-position: top center;
   padding: 10% 0;
-  width: 100%;
+  width: 100vw;
   height: auto;
 }
-.grid-wrapper .main-banner .overlay {
+.main-banner .overlay {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -237,22 +241,22 @@ hr {
   right: 0;
   opacity: 0.5;
 }
-.grid-wrapper .main-banner .container {
+.main-banner .container {
   position: relative;
-  width: 100vw;
+  width: 100%;
   padding: 0 8rem;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
 }
-.grid-wrapper .main-banner .container h2 {
+.main-banner .container h2 {
   font-size: 32px;
   flex: 1;
 }
-.grid-wrapper .main-banner .container h2:first-of-type {
+.main-banner .container h2:first-of-type {
   margin-top: 5rem;
 }
-.grid-wrapper .main-banner .container p {
+.main-banner .container p {
   display: flex;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -260,7 +264,7 @@ hr {
   font-weight: bold;
   word-wrap: wrap;
 }
-.grid-wrapper .main-banner .container .btn {
+.main-banner .container .btn {
   font-size: 12px;
   display: inline-block;
   max-width: 8rem;
@@ -269,73 +273,85 @@ hr {
   background-color: whitesmoke;
   color: lightcoral;
 }
-.grid-wrapper .main-banner .container .btn:hover {
+.main-banner .container .btn:hover {
   background-color: lightcoral;
   color: whitesmoke;
   transition: 0.2s ease-in-out;
 }
 @media screen and (max-width: 600px) {
-  .grid-wrapper .main-banner .container {
+  .main-banner .container {
     padding: 2rem;
   }
 }
-.grid-wrapper .coaches {
+@media screen and (max-width: 600px) {
+  .main-banner .container {
+    padding: 3rem;
+  }
+}
+
+.coaches {
   background-color: #1a1c27;
   width: 100vw;
 }
-.grid-wrapper .coaches .container {
+.coaches .container {
   position: relative;
   padding: 5rem 8rem;
   display: flex;
-  width: 100%;
+  width: 100vw;
   height: auto;
 }
-.grid-wrapper .coaches .container article {
+.coaches .container article {
   flex: 1 0 30%;
   margin-bottom: 2rem;
 }
-.grid-wrapper .coaches .container article h2, .grid-wrapper .coaches .container article h3, .grid-wrapper .coaches .container article h4 {
+.coaches .container article h2, .coaches .container article h3, .coaches .container article h4 {
   margin: 1rem 0;
   width: 100%;
 }
-.grid-wrapper .coaches .container article h3 {
+.coaches .container article h3 {
   border-left: 3px solid red;
   padding-left: 1rem;
   margin-bottom: 2rem;
 }
-.grid-wrapper .coaches .container article h4 {
+.coaches .container article h4 {
   width: 80%;
 }
-.grid-wrapper .coaches .container article p {
+.coaches .container article p {
   width: 80%;
 }
-.grid-wrapper .coaches .container figure {
+.coaches .container figure {
   max-width: 80%;
   height: auto;
   flex: 1 1 auto;
 }
-.grid-wrapper .coaches .container figure img {
+.coaches .container figure img {
   max-width: 100%;
   height: auto;
 }
 @media screen and (max-width: 600px) {
-  .grid-wrapper .coaches .container {
+  .coaches .container {
     flex-direction: column;
     padding: 2rem;
   }
 }
-.grid-wrapper .service {
+@media screen and (max-width: 900px) {
+  .coaches .container {
+    padding: 3rem;
+  }
+}
+
+.service {
   background-color: black;
   width: 100vw;
 }
-.grid-wrapper .service h2 {
+.service h2 {
   text-align: center;
   padding: 2rem;
   margin-bottom: 0;
   font-size: 32px;
   font-weight: 300;
 }
-.grid-wrapper .service .container {
+.service .container {
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -345,7 +361,7 @@ hr {
   height: auto;
   padding: 2rem 8rem;
 }
-.grid-wrapper .service .container article {
+.service .container article {
   flex: 1;
   padding: 2rem;
   margin: 2rem;
@@ -355,29 +371,29 @@ hr {
   width: 100%;
   height: auto;
 }
-.grid-wrapper .service .container article hr {
+.service .container article hr {
   border-color: white;
   margin-top: 1rem;
 }
-.grid-wrapper .service .container article p {
+.service .container article p {
   margin-bottom: 1rem;
 }
-.grid-wrapper .service .container article .btn-red {
+.service .container article .btn-red {
   background-color: transparent;
   color: #eb315a;
   border: 2px solid #eb315a;
   padding: 8px 40px;
   outline: none;
 }
-.grid-wrapper .service .container article:hover .btn-red {
+.service .container article:hover .btn-red {
   color: white;
   border: 2px solid white;
 }
-.grid-wrapper .service .container article:hover .btn-red:hover {
+.service .container article:hover .btn-red:hover {
   color: #eb315a;
   background-color: white;
 }
-.grid-wrapper .service .container article::before {
+.service .container article::before {
   content: "";
   position: absolute;
   left: 0;
@@ -388,11 +404,11 @@ hr {
   opacity: 0.7;
   z-index: -1;
 }
-.grid-wrapper .service .container article:hover::before {
+.service .container article:hover::before {
   background-color: #eb315a;
   opacity: 0.9;
 }
-.grid-wrapper .service .container .bodyshape {
+.service .container .bodyshape {
   background-image: url("bodyshapeing.9e3ddd0e.jpg");
   background-repeat: no-repeat;
   background-position: center;
@@ -400,7 +416,7 @@ hr {
   position: relative;
   z-index: 1;
 }
-.grid-wrapper .service .container .exstreme {
+.service .container .exstreme {
   background-image: url("exstreme.8a6d4fd2.jpg");
   background-repeat: no-repeat;
   background-position: center;
@@ -408,7 +424,7 @@ hr {
   position: relative;
   z-index: 1;
 }
-.grid-wrapper .service .container .yoga {
+.service .container .yoga {
   background-image: url("yoga.6f1032b7.jpg");
   background-repeat: no-repeat;
   background-position: center;
@@ -417,27 +433,28 @@ hr {
   z-index: 1;
 }
 @media screen and (max-width: 600px) {
-  .grid-wrapper .service .container {
+  .service .container {
     padding: 2rem 0.5rem;
   }
-  .grid-wrapper .service .container article {
+  .service .container article {
     margin: 0 2rem;
     flex: 1;
     padding: 3rem;
   }
 }
-.grid-wrapper .prices {
+
+.prices {
   background-color: #1a1c27;
   width: 100vw;
 }
-.grid-wrapper .prices h2 {
+.prices h2 {
   text-align: center;
   padding: 2rem;
   margin-bottom: 0;
   font-size: 32px;
   font-weight: 300;
 }
-.grid-wrapper .prices .container {
+.prices .container {
   position: relative;
   display: flex;
   justify-content: space-evenly;
@@ -446,27 +463,27 @@ hr {
   max-width: 100%;
   padding: 2rem 8rem;
 }
-.grid-wrapper .prices .container article {
+.prices .container article {
   margin: 2rem;
   background-color: #222532;
 }
-.grid-wrapper .prices .container h3, .grid-wrapper .prices .container p, .grid-wrapper .prices .container ul {
+.prices .container h3, .prices .container p, .prices .container ul {
   padding: 1.5rem 5rem;
 }
-.grid-wrapper .prices .container p {
+.prices .container p {
   text-align: center;
   background-color: #2e3242;
 }
-.grid-wrapper .prices .container p span {
+.prices .container p span {
   color: whitesmoke;
 }
-.grid-wrapper .prices .container ul {
+.prices .container ul {
   text-align: center;
 }
-.grid-wrapper .prices .container ul li {
+.prices .container ul li {
   padding-bottom: 1rem;
 }
-.grid-wrapper .prices .container .btn-singup {
+.prices .container .btn-singup {
   text-align: center;
   display: block;
   background-color: #2e3242;
@@ -475,16 +492,17 @@ hr {
   margin: 0 1rem 1rem 1rem;
   text-transform: capitalize;
 }
-.grid-wrapper .prices .container .btn-singup:hover {
+.prices .container .btn-singup:hover {
   background-color: #1a1c27;
   color: whitesmoke;
 }
-.grid-wrapper .login {
+
+.login {
   background-color: #171923;
   text-align: center;
   width: 100vw;
 }
-.grid-wrapper .login .container {
+.login .container {
   position: relative;
   max-width: 100%;
   display: flex;
@@ -492,22 +510,22 @@ hr {
   justify-content: center;
   align-content: center;
 }
-.grid-wrapper .login .container h2 {
+.login .container h2 {
   font-size: 2em;
   margin-top: 7rem;
   text-transform: uppercase;
 }
-.grid-wrapper .login .container p {
+.login .container p {
   color: #636d75;
 }
-.grid-wrapper .login .container h2, .grid-wrapper .login .container p {
+.login .container h2, .login .container p {
   margin-bottom: 1rem;
 }
-.grid-wrapper .login .container form {
+.login .container form {
   display: block;
   margin: 1rem 0 2rem 0;
 }
-.grid-wrapper .login .container form input {
+.login .container form input {
   display: block;
   margin: 0 auto;
   text-align: left;
@@ -519,7 +537,7 @@ hr {
   padding-bottom: 0.5rem;
   margin-top: 3rem;
 }
-.grid-wrapper .login .container form .btn-login {
+.login .container form .btn-login {
   margin: 3rem 0;
   padding: 0.7rem;
   border: 1px solid #eb315a;
@@ -528,20 +546,31 @@ hr {
   min-width: 30%;
   text-transform: capitalize;
 }
-.grid-wrapper .login .container form .btn-login:hover {
+.login .container form .btn-login:hover {
   color: #e4e4e4;
   border-color: #e4e4e4;
   cursor: pointer;
 }
-.grid-wrapper .faq {
+@media screen and (max-width: 900px) {
+  .login .container form input {
+    min-width: 30%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .login .container form input {
+    min-width: 40%;
+  }
+}
+
+.faq {
   background-color: #1a1c27;
   text-align: center;
   width: 100vw;
 }
-.grid-wrapper .faq h2 {
+.faq h2 {
   margin-top: 5rem;
 }
-.grid-wrapper .faq .container {
+.faq .container {
   position: relative;
   max-width: 100%;
   display: flex;
@@ -549,40 +578,41 @@ hr {
   padding: 0 4rem;
   margin-bottom: 4rem;
 }
-.grid-wrapper .faq .container article {
+.faq .container article {
   flex-basis: 50%;
   display: flex;
   flex-direction: column;
   text-align: left;
   padding: 1rem;
 }
-.grid-wrapper .faq .container article h3 {
+.faq .container article h3 {
   margin: 0.5rem 0;
 }
-.grid-wrapper .faq .container article p {
+.faq .container article p {
   color: gray;
   max-width: 100%;
 }
 @media screen and (max-width: 600px) {
-  .grid-wrapper .faq .container {
+  .faq .container {
     flex-direction: column;
     flex-wrap: nowrap;
   }
 }
-.grid-wrapper footer {
+
+footer {
   background: #13191d url("footer.6d410079.jpg") center center no-repeat;
   background-size: cover;
   background-attachment: fixed;
   position: relative;
   width: 100vw;
 }
-.grid-wrapper footer .container {
+footer .container {
   position: relative;
   display: flex;
   flex-wrap: wrap;
   align-content: space-around;
 }
-.grid-wrapper footer .container article, .grid-wrapper footer .container address {
+footer .container article, footer .container address {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -590,32 +620,32 @@ hr {
   text-align: center;
   margin: 2rem 0;
 }
-.grid-wrapper footer .container article h2, .grid-wrapper footer .container article h3, .grid-wrapper footer .container address h2, .grid-wrapper footer .container address h3 {
+footer .container article h2, footer .container article h3, footer .container address h2, footer .container address h3 {
   color: whitesmoke;
 }
-.grid-wrapper footer .container .about {
+footer .container .about {
   flex: 1 0 33%;
   display: flex;
   flex-direction: column;
   padding: 2rem;
   align-items: center;
 }
-.grid-wrapper footer .container .about p {
+footer .container .about p {
   align-self: flex-start;
   text-align: left;
 }
-.grid-wrapper footer .container .about h3 {
+footer .container .about h3 {
   text-transform: uppercase;
   align-self: flex-start;
 }
-.grid-wrapper footer .container .about form {
+footer .container .about form {
   background: #54545438;
   display: flex;
   width: 100%;
   justify-items: center;
   padding: 0.2rem;
 }
-.grid-wrapper footer .container .about form input {
+footer .container .about form input {
   display: block;
   position: relative;
   flex: 1 1 auto;
@@ -626,45 +656,45 @@ hr {
   padding-left: 0.8rem;
   font-size: 14px;
 }
-.grid-wrapper footer .container .about form input:focus {
+footer .container .about form input:focus {
   color: #495057;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
   outline: 0;
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-.grid-wrapper footer .container .about form span button {
+footer .container .about form span button {
   position: relative;
   border: 0;
   outline: 0;
   padding: 5px;
   background: transparent;
 }
-.grid-wrapper footer .container .about form span button i {
+footer .container .about form span button i {
   color: #eb315a;
   padding-right: 5px;
 }
-.grid-wrapper footer .container .about form span button:focus {
+footer .container .about form span button:focus {
   border: 1.5px solid #80bdff;
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-.grid-wrapper footer .container .posts {
+footer .container .posts {
   flex: 1 0 33%;
   display: flex;
   flex-direction: column;
   padding: 2rem;
   align-items: center;
 }
-.grid-wrapper footer .container .posts ul {
+footer .container .posts ul {
   text-align: left;
 }
-.grid-wrapper footer .container .posts ul li {
+footer .container .posts ul li {
   position: relative;
   padding-left: 30px;
   color: #c9c9c9;
 }
-.grid-wrapper footer .container .posts ul li a::before {
+footer .container .posts ul li a::before {
   content: "";
   position: absolute;
   left: 0;
@@ -674,21 +704,21 @@ hr {
   display: block;
   background: red;
 }
-.grid-wrapper footer .container .posts ul li a {
+footer .container .posts ul li a {
   color: #c9c9bd;
 }
-.grid-wrapper footer .container .posts ul li a:hover {
+footer .container .posts ul li a:hover {
   color: #f5f5f5;
   transition: 0.2s ease-in-out;
 }
-.grid-wrapper footer .container .posts ul li span {
+footer .container .posts ul li span {
   text-transform: capitalize;
   color: #576673;
   font-size: 13px;
   display: block;
   margin-top: 0.5rem;
 }
-.grid-wrapper footer .container address {
+footer .container address {
   flex: 1 0 33%;
   display: flex;
   flex-direction: column;
@@ -696,26 +726,26 @@ hr {
   align-items: center;
   font-style: normal;
 }
-.grid-wrapper footer .container address ul {
+footer .container address ul {
   margin-bottom: 1rem;
 }
-.grid-wrapper footer .container address ul li {
+footer .container address ul li {
   color: #726a84;
 }
-.grid-wrapper footer .container address ul li p {
+footer .container address ul li p {
   text-align: left;
 }
-.grid-wrapper footer .container address ul li p i {
+footer .container address ul li p i {
   color: #eb315a;
   padding-right: 0.5rem;
 }
-.grid-wrapper footer .container address .social {
+footer .container address .social {
   margin-top: 1rem;
 }
-.grid-wrapper footer .container address .social li {
+footer .container address .social li {
   display: inline-block;
 }
-.grid-wrapper footer .container address .social li a {
+footer .container address .social li a {
   display: block;
   color: #eb315a;
   border: 1px solid #eb315a;
@@ -725,33 +755,41 @@ hr {
   line-height: 34px;
   text-align: center;
 }
-.grid-wrapper footer .container address .social li a:hover {
+footer .container address .social li a:hover {
   background-color: #eb315a;
   border-color: #eb315a;
   color: #fff;
 }
-@media screen and (max-width: 800px) {
-  .grid-wrapper footer .container {
+@media screen and (max-width: 900px) {
+  footer .container {
     flex-direction: column;
     flex-wrap: nowrap;
-  }
-  .grid-wrapper footer .container article, .grid-wrapper footer .container address {
-    flex: 0 2 50%;
+    margin: 0 2rem;
+    padding: 2rem 5rem;
   }
 }
-.grid-wrapper footer .last-line {
+@media screen and (max-width: 600px) {
+  footer .container {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin: 0;
+    padding: 0;
+  }
+}
+footer .last-line {
   position: relative;
   width: 100%;
   border-color: #636d75;
   padding: 0.5rem;
 }
-.grid-wrapper footer p {
+footer p {
   position: relative;
   text-align: center;
   color: #636d75;
   margin-bottom: 1rem;
 }
-.grid-wrapper footer::before {
+
+footer::before {
   content: "";
   position: absolute;
   top: 0;
